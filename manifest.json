@@ -6,7 +6,7 @@
   "developer_name": "Yegor Zhumikov",
   "icon": "images/gt-icon.png",
   "options": {
-    "query_debounce": 0.1
+    "query_debounce": 1
   },
   "preferences": [
     {
