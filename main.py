@@ -27,7 +27,7 @@ class KeywordQueryEventListener(EventListener):
             ])
 
         try:
-            translation = TranslateShellParser(query).execute()
+            translations = TranslateShellParser(query).execute()
         except OSError:
             return RenderResultListAction([
                 ExtensionResultItem(

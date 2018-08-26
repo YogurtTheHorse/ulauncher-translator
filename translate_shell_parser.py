@@ -1,6 +1,7 @@
 import shlex
 import subprocess
 
+
 class TranslationItem:
     def __init__(self, translation, part_of_speech=None, examples=None, synonyms=None):
         if part_of_speech is None:
@@ -22,15 +23,13 @@ class TranslateShellParser:
 
     def execute(self):
         try:
-            args = shlex.split('trasddans -no-ansi ' + self.request)
+            args = shlex.split('trans -no-ansi ' + self.request)
         except ValueError:
             raise StopIteration
 
-        result = subprocess.Popen(args, stdout=subprocess.PIPE).\
+        result = subprocess.Popen(args, stdout=subprocess.PIPE). \
             communicate()[0]
 
-
-        print(result.decode('utf-8'))
         lines = result.decode('utf-8').split('\n')
 
         if len(lines) == 0:
