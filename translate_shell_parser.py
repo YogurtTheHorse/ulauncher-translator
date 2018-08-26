@@ -4,11 +4,8 @@ import subprocess
 
 class TranslationItem:
     def __init__(self, translation, part_of_speech=None, examples=None, synonyms=None):
-        if part_of_speech is None:
-            part_of_speech = ''
-
         self.translation = translation
-        self.part_of_speech = part_of_speech
+        self.part_of_speech = part_of_speech or ''
         self.synonyms = synonyms or []
         self.examples = examples or []
 
@@ -64,18 +61,20 @@ class TranslateShellParser:
                     self._examples,
                     self._synonyms
                 )
+                print(translation.translation)
             self._current_translation = None
             self._examples = list()
             self._synonyms = list()
         if indent_count == 4:
             if line.startswith('Synonyms: '):
                 self._synonyms = line[len('Synonyms: '):].split(',')
+                self._synonyms = [synonym.strip() for synonym in self._synonyms if len(synonym.strip()) > 0]
             else:
                 self._current_translation = line
         elif indent_count == 8:
             if line.startswith('-'):
                 self._examples.append(line[2:])
             else:
-                self._examples = [example.strip() for example in line.split(',')]
+                self._examples = [example.strip() for example in line.split(',') if len(example.strip()) > 0]
 
         return translation

@@ -41,7 +41,7 @@ class KeywordQueryEventListener(EventListener):
         items = [
             ExtensionResultItem(icon='images/gt-icon.png',
                                 name=translation.translation,
-                                description=translation.part_of_speech + ', ' + ' '.join(translation.synonyms),
+                                description=translation.part_of_speech + ', '.join(translation.synonyms),
                                 on_enter=HideWindowAction())
 
             for translation in translations
