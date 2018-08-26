@@ -27,7 +27,7 @@ class TranslateShellParser:
         result = subprocess.Popen(args, stdout=subprocess.PIPE). \
             communicate()[0]
 
-        lines = result.decode('utf-8').split('\n')
+        lines = result.split('\n')
 
         if len(lines) == 0:
             raise StopIteration
