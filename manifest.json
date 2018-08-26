@@ -1,0 +1,20 @@
+{
+  "manifest_version": "2",
+  "api_version": "1",
+  "name": "Translator",
+  "description": "Uses translate-shell for translating",
+  "developer_name": "Yegor Zhumikov",
+  "icon": "images/gt-icon.png",
+  "options": {
+    "query_debounce": 0.1
+  },
+  "preferences": [
+    {
+      "id": "trans_kw",
+      "type": "keyword",
+      "name": "Translator",
+      "default_value": "trans"
+    }
+  ]
+}
+
